@@ -19,6 +19,8 @@ RUN apt-get update && apt-get install -y \
     && curl -sLf https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash \
     && curl -sLf https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -o /usr/bin/yq \
     && chmod +x /usr/bin/yq \
+    && mkdir -p /root/.trivy/contrib \
+    && curl -sLf https://raw.githubusercontent.com/aquasecurity/trivy/refs/heads/main/contrib/html.tpl -o /root/.trivy/contrib/html.tpl \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
